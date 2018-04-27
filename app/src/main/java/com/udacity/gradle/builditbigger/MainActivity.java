@@ -12,10 +12,13 @@ import recipe.kildare.com.jokeslib.Joke;
 
 public class MainActivity extends AppCompatActivity {
 
+    JokeEndpointAsyncTask mAsyncTask;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
@@ -42,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, Joke.getJoke(), Toast.LENGTH_SHORT).show();
+        mAsyncTask = new JokeEndpointAsyncTask();
+        mAsyncTask.execute(this);
     }
 
 
