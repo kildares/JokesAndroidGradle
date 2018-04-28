@@ -24,7 +24,7 @@ public class JokeEndpointAsyncTask extends AsyncTask<Context, Void, String> {
     private Context context;
 
     @Override
-    protected String doInBackground(Context... params) {
+    public  String doInBackground(Context... params) {
         if(mJokesApiService == null) {  // Only do this once
             JokesApi.Builder builder = new JokesApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -53,7 +53,7 @@ public class JokeEndpointAsyncTask extends AsyncTask<Context, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    public void onPostExecute(String result) {
         Intent intent = new Intent(context, JokesActivity.class);
         intent.putExtra(context.getString(R.string.JOKE_KEY), result);
         context.startActivity(intent);
