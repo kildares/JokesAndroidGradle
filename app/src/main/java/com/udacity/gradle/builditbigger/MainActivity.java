@@ -8,7 +8,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    JokeEndpointAsyncTask mAsyncTask;
+    private JokeEndpointAsyncTask mAsyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
